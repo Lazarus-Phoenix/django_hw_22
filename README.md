@@ -15,23 +15,22 @@
 django_hw_22/ 
 
 │ ├── config/ <br>
-│   ├── init.py <br>
-│   ├── settings.py <br>
-│   ├── urls.py <br>
-│   └── wsgi.py <br>
+│....├── init.py <br>
+│....├── settings.py <br>
+│....└── wsgi.py <br>
 │ ├── catalog/ <br>
-│   ├── init.py <br>
-│   ├── admin.py <br>
-│   ├── apps.py <br>
-│   ├── models.py <br>
-│   ├── tests.py <br>
-│   └── views.py <br>
-│   ├── templates/ <br>
-│       ├── home.html <br>
-│       └── contacts.html <br>
+│....├── init.py <br>
+│....├── admin.py <br>
+│....├── apps.py <br>
+│....├── models.py <br>
+│....├── tests.py <br>
+│....└── views.py <br>
+│....├── templates/ <br>
+│........├── home.html <br>
+│........└── contacts.html <br>
 │ └── static/ <br>
-    └── css/ <br>
-        └── bootstrap.min.css<br>
+....└── css/ <br>
+........└── bootstrap.min.css<br>
 
 
 
