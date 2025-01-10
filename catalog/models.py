@@ -23,6 +23,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        ordering = ['name']  # Представление в админке сортированным по имени
 
     def __str__(self):
         return self.name
