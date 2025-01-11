@@ -1,0 +1,66 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Микрофоны",
+        "description": "Вокально-дикторское звукосъёмное оборудование"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Микшеры",
+        "description": "Студийное профессиональное оборудование звуковой постобработки"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Микрофоны",
+        "description": "Вокально-дикторское звукосъёмное оборудование"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+        "name": "Микшеры",
+        "description": "Студийное профессиональное оборудование звуковой постобработки"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Микрофоны",
+        "description": "Вокально-дикторское звукосъёмное оборудование"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 6,
+    "fields": {
+        "name": "Микшеры",
+        "description": "Студийное профессиональное оборудование звуковой постобработки"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 7,
+    "fields": {
+        "name": "Микрофоны",
+        "description": "Вокально-дикторское звукосъёмное оборудование"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 8,
+    "fields": {
+        "name": "Микшеры",
+        "description": "Студийное профессиональное оборудование звуковой постобработки"
+    }
+}
+]
