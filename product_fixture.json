@@ -1,0 +1,28 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+        "name": "BM-800",
+        "description": "Профессиональный студийный микрофон конденсаторного типа",
+        "image": "",
+        "category": 9,
+        "purchase_price": "5000.00",
+        "created_at": "2025-01-12T00:00:11.551Z",
+        "update_at": "2025-01-12T00:00:11.551Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 8,
+    "fields": {
+        "name": "Muslady",
+        "description": "Трёхполосный аудио микшер , подходит для профессионального стриминга, и подкастов",
+        "image": "",
+        "category": 10,
+        "purchase_price": "5000.00",
+        "created_at": "2025-01-12T00:00:36.556Z",
+        "update_at": "2025-01-12T00:00:36.556Z"
+    }
+}
+]
