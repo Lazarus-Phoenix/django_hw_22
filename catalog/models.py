@@ -18,8 +18,9 @@ class Product(models.Model):
         max_length=200
     )
     description = models.TextField()
-    photo = models.ImageField(
-        upload_to='product_images/',
+
+    image = models.ImageField(
+        upload_to='catalog/product_images',
         null=True,
         blank=True,
         verbose_name="Фото",
