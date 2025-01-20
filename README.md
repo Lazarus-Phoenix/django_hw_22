@@ -1,6 +1,8 @@
 # Проект Skystore
 ---
-Пруфы выполнения Д/з 23 Работа с ORM в Django на скриншотах в static/HW_23_images
+![Screenshot 2025-01-20 at 06-10-03 AudioMarket · Bootstrap v5.3.png](static/HW_24_photo_pages_site/Screenshot%202025-01-20%20at%2006-10-03%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-20 at 06-16-13 AudioMarket · Bootstrap v5.3.png](static/HW_24_photo_pages_site/Screenshot%202025-01-20%20at%2006-16-13%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-20 at 06-13-22 AudioMarket · Bootstrap v5.3.png](static/HW_24_photo_pages_site/Screenshot%202025-01-20%20at%2006-13-22%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
 ---
 Этот проект был разработан как домашнее задание с использованием фреймворка Django. 
 Он включает в себя приложение каталога с домашней страницей и страницей контактов.
@@ -34,6 +36,9 @@ django_hw_22/
 │....└── views.py <br>
 │....├── templates/ <br>
 │........├── home.html <br>
+│........├── base.html
+│........├── product_detail.html
+│........├── product_list.html
 │........└── contacts.html <br>
 │ └── static/ <br>
 ....└── css/ <br>
@@ -43,7 +48,7 @@ django_hw_22/
 
 ## Реализованные функции
 
-1. **Домашняя страница**: Отображает информацию о Skystore
+1. **Домашняя страница**: Каталог товаров с фото и краткими описаниями
 2. **Страница контактов**: Предоставляет детали контактов и форму для отправки сообщений
 
 ## Инструкции по настройке
