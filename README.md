@@ -36,9 +36,9 @@ django_hw_22/
 │....└── views.py <br>
 │....├── templates/ <br>
 │........├── home.html <br>
-│........├── base.html
-│........├── product_detail.html
-│........├── product_list.html
+│........├── base.html<br>
+│........├── product_detail.html<br>
+│........├── product_list.html<br>
 │........└── contacts.html <br>
 │ └── static/ <br>
 ....└── css/ <br>
