@@ -29,7 +29,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        related_name='products'
+        related_name='catalog'
     )
     purchase_price = models.DecimalField(
         max_digits=10,
