@@ -1,20 +1,13 @@
 from operator import index
 
-from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Product
 from django.views.generic import ListView, DetailView, TemplateView
 from django.core.mail import send_mail
-import os
 
 
 class HomeView(TemplateView):
     template_name = "home.html"
-
-# def home(request):
-#     return render(request, "home.html")
-
-
 
 
 class ContactTemplateView(TemplateView):
@@ -49,32 +42,19 @@ class ContactTemplateView(TemplateView):
         return context
 
 
-# def contacts(request):
-#     return render(request, "contacts.html")
+
 
 
 
 class ProductListView(ListView):
     model = Product
 
-# def product_list(request):
-#     catalog = Product.objects.all()
-#     context={ 'catalog' : catalog }
-#     return render(request, "product_list.html", context)
-
 
 class ProductDetailView(DetailView):
     model = Product
-
-# def product_detail(request, pk):
-#     product = get_object_or_404(Product, pk=pk)
-#     context = {'product': product}
-#     return render(request, 'product_detail.html', context)
 
 
 class BaseTemplateView(TemplateView):
     template_name = "base.html"
 
 index_view = BaseTemplateView.as_view()
-# def index(request):
-#     return render(request,"base.html")
