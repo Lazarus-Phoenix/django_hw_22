@@ -1,6 +1,6 @@
 # Проект Skystore
 ---
-![Screenshot 2025-01-26 at 05-19-06 AudioMarket · Bootstrap v5.3.png]
+![Screenshot 2025-01-26 at 05-19-06 AudioMarket · Bootstrap v5.3.png](Screenshot 2025-01-26 at 05-19-06 AudioMarket · Bootstrap v5.3.png)
 ![Screenshot 2025-01-26 at 05-22-03 AudioMarket · Bootstrap v5.3.png]()
 ![Screenshot 2025-01-26 at 05-23-09 AudioMarket · Bootstrap v5.3.png]()
 ![Screenshot 2025-01-26 at 05-24-34 AudioMarket · Bootstrap v5.3.png]()
