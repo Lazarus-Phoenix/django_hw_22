@@ -6,7 +6,7 @@
 ![Screenshot 2025-01-26 at 05-24-34 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-24-34%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
 ![Screenshot 2025-01-26 at 06-12-36 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2006-12-36%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
 ![Screenshot 2025-01-26 at 06-13-54 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2006-13-54%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-## Создание статьи и удаление отработали в полной мере !
+## CRUD Создание редактирование обновление статей и удаление !
 ---
 Этот проект был разработан как домашнее задание с использованием фреймворка Django. 
 Он включает в себя приложение каталога с домашней страницей и страницей контактов.
