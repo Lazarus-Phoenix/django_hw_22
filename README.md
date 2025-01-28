@@ -1,8 +1,12 @@
 # Проект Skystore
 ---
-![Screenshot 2025-01-20 at 06-10-03 AudioMarket · Bootstrap v5.3.png](static/HW_24_photo_pages_site/Screenshot%202025-01-20%20at%2006-10-03%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-20 at 06-16-13 AudioMarket · Bootstrap v5.3.png](static/HW_24_photo_pages_site/Screenshot%202025-01-20%20at%2006-16-13%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-20 at 06-13-22 AudioMarket · Bootstrap v5.3.png](static/HW_24_photo_pages_site/Screenshot%202025-01-20%20at%2006-13-22%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-26 at 05-19-06 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-19-06%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-26 at 05-22-03 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-22-03%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-26 at 05-23-09 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-23-09%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-26 at 05-24-34 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-24-34%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-26 at 06-12-36 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2006-12-36%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-01-26 at 06-13-54 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2006-13-54%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+## CRUD Создание редактирование обновление статей и удаление !
 ---
 Этот проект был разработан как домашнее задание с использованием фреймворка Django. 
 Он включает в себя приложение каталога с домашней страницей и страницей контактов.
@@ -22,6 +26,20 @@ django_hw_22/
 │....├── init.py <br>
 │....├── settings.py <br>
 │....└── wsgi.py <br>
+│ ├── blog/ <br>
+│.......├──management/ <br>
+│...........├──init.py <br>
+│...........├──commands/ <br>
+│...............├──init.py <br>
+│....├──migrations/ <br>
+│....├── init.py <br>
+│....├── admin.py <br>
+│....├── apps.py <br>
+│....├── models.py <br>
+│....├── templates/ <br>
+│....├── tests.py <br>
+│....└── views.py <br>
+│
 │ ├── catalog/ <br>
 │.......├──management/ <br>
 │...........├──init.py <br>
@@ -32,24 +50,31 @@ django_hw_22/
 │....├── admin.py <br>
 │....├── apps.py <br>
 │....├── models.py <br>
+│....├── templates/ <br>
 │....├── tests.py <br>
 │....└── views.py <br>
-│....├── templates/ <br>
 │........├── home.html <br>
-│........├── base.html<br>
-│........├── product_detail.html<br>
-│........├── product_list.html<br>
+│........├── base.html <br>
+│........├── product_detail.html <br>
+│........├── product_list.html <br>
 │........└── contacts.html <br>
 │ └── static/ <br>
 ....└── css/ <br>
 ........└── bootstrap.min.css<br>
 
+# Вся архитектура функционала сайта переведена с FBV на CBV
+1. Реализованы шаблоны, шаблонные теги и фильтры
+2. Реализована пагинация
+3. Реализовано добавление продукта пользователем
+4. Реализована страница продукта
+5. На главной странице выводятся все продукты
 
 
-## Реализованные функции
+## Реализованный функционал
 
 1. **Домашняя страница**: Каталог товаров с фото и краткими описаниями
 2. **Страница контактов**: Предоставляет детали контактов и форму для отправки сообщений
+3. **Блог**: Блог с публикуемыми тематическими статьями отсортированными по дате, читайте свежее первым 
 
 ## Инструкции по настройке
 
