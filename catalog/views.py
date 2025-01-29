@@ -1,8 +1,9 @@
 from operator import index
 
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from .models import Product
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView,CreateView,UpdateView,DeleteView
 from django.core.mail import send_mail
 
 
@@ -48,11 +49,44 @@ class ContactTemplateView(TemplateView):
 
 class ProductListView(ListView):
     model = Product
+    template_name = 'catalog/product_list.html'
+    context_object_name = 'product'
 
+    # def get_queryset(self):
+    #     return Product.objects.filter(published=True)
 
 class ProductDetailView(DetailView):
     model = Product
+    template_name = 'catalog/product_detail.html'
+    context_object_name = 'product'
 
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ['name', 'image', 'category', 'purchase_price' ]
+    template_name = 'catalog/product_form.html'
+    success_url = reverse_lazy('catalog:home')
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ['name', 'image', 'category', 'purchase_price' ]
+    template_name = 'catalog/product_form.html'
+    success_url = reverse_lazy('catalog:product_detail')
+
+    def get_success_url(self):
+        product = self.get_object()
+        return reverse_lazy('catalog:product_detail', kwargs={'pk': product.pk})
+
+    def form_valid(self, form):
+        product = form.save(commit=True)
+        product.published = True
+        product.save()
+        return super().form_valid(form)
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'catalog/product_delete.html'
 
 class BaseTemplateView(TemplateView):
     template_name = "base.html"
