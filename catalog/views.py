@@ -2,6 +2,8 @@ from operator import index
 
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
+from .forms import ProductForm
 
 from .forms import ProductForm
 from .models import Product
@@ -62,8 +64,10 @@ class ProductDetailView(DetailView):
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
+
     # fields = ['name', 'image', 'category', 'purchase_price' ]
-    template_name = 'catalog/product_form.html'
+
+    template_name = 'catalog/product_create.html'
     success_url = reverse_lazy('catalog:home')
 
     def form_valid(self, form): # изменение флага состояния при сохранении
@@ -72,12 +76,24 @@ class ProductCreateView(CreateView):
         product.save()
         return super().form_valid(form)
 
+    def create_product(request):
+        if request.method == 'POST':
+            form = ProductForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('product_list.html')
+        else:
+            form = ProductForm()
+        return render(request, 'product_create.html', {'form': form})
 
 
 class ProductUpdateView(UpdateView):
     model = Product
-    fields = ['name', 'image', 'category', 'purchase_price' ]
-    template_name = 'catalog/product_form.html'
+    form_class = ProductForm
+
+    # fields = ['name', 'image', 'category', 'purchase_price' ]
+
+    template_name = 'catalog/product_update.html'
     success_url = reverse_lazy('catalog:product_detail')
 
     def get_success_url(self):
@@ -93,7 +109,7 @@ class ProductUpdateView(UpdateView):
 
 class ProductDeleteView(DeleteView):
     model = Product
-    template_name = 'catalog/product_delete.html'
+    template_name = 'catalog/product_delete_confirm.html'
 
 class BaseTemplateView(TemplateView):
     template_name = "base.html"
