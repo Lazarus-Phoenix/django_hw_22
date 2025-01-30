@@ -1,12 +1,12 @@
-from django import forms
-from .models import Product
-from django.core.exceptions import ValidationError
+from itertools import product
+
+from django.forms import ModelForm
+
+from catalog.models import Product
 
 
-class ProductForm(forms.ModelForm):
+class ProductForm(ModelForm):
     class Meta:
         model = Product
-        exclude = ('created_at', 'updated_at') # исключение к отображению
-
-
-
+        fields = "__all__"
+        # exclude = ('name',)
