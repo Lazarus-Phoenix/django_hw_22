@@ -1,14 +1,22 @@
-from operator import index
+from django.views.generic import ListView, DetailView, TemplateView,CreateView,UpdateView,DeleteView
 
-from django.http import HttpResponse
-from django.urls import reverse_lazy
+
 from django.shortcuts import render, redirect
-from .forms import ProductForm
-
+from django.urls import reverse_lazy
 from .forms import ProductForm
 from .models import Product
-from django.views.generic import ListView, DetailView, TemplateView,CreateView,UpdateView,DeleteView
-from django.core.mail import send_mail
+
+
+def product_form_view(request, template_name, form_class, success_url):
+    if request.method == "POST":
+        form = form_class(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(success_url)
+    else:
+        form = form_class()
+
+    return render(request, template_name, {'form': form})
 
 
 class HomeView(TemplateView):
@@ -64,52 +72,41 @@ class ProductDetailView(DetailView):
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
-
-    # fields = ['name', 'image', 'category', 'purchase_price' ]
-
     template_name = 'catalog/product_create.html'
-    success_url = reverse_lazy('catalog:home')
+    success_url = reverse_lazy('catalog:product_list')
 
-    def form_valid(self, form): # изменение флага состояния при сохранении
-        product = form.save(commit=True)
-        product.published = True
-        product.save()
-        return super().form_valid(form)
 
-    def create_product(request):
-        if request.method == 'POST':
-            form = ProductForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('product_list.html')
-        else:
-            form = ProductForm()
-        return render(request, 'product_create.html', {'form': form})
+
+    # def create_product(request):
+    #     if request.method == 'POST':
+    #         form = ProductForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #             return redirect('catalog/product_list.html')
+    #     else:
+    #         form = ProductForm()
+    #     return render(request, 'product_create.html', {'form': form})
 
 
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
-
-    # fields = ['name', 'image', 'category', 'purchase_price' ]
-
     template_name = 'catalog/product_update.html'
     success_url = reverse_lazy('catalog:product_detail')
 
-    def get_success_url(self):
-        product = self.get_object()
-        return reverse_lazy('catalog:product_detail', kwargs={'pk': product.pk})
-
-    def form_valid(self, form):
-        product = form.save(commit=True)
-        product.published = True
-        product.save()
-        return super().form_valid(form)
-
+    # def form_valid(self, form):
+    #     product = form.save(commit=False)
+    #     product.published = True
+    #     product.save()
+    #     return super().form_valid(form)
 
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'catalog/product_delete_confirm.html'
+    success_url = reverse_lazy('catalog:product_detail')
+
+    def get_success_url(self):
+        return reverse_lazy('catalog:product_list')
 
 class BaseTemplateView(TemplateView):
     template_name = "base.html"

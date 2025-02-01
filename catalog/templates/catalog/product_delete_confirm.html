@@ -11,8 +11,8 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-danger">Подтверждаете удалений ???</button>
-                <a href="{% url 'catalog:product_list' %}" class="btn btn-primary">Отмена</a>
+                <button type="submit" class="btn btn-danger">🍂 Подтвердите удаление 🍂</button>
+                <a href="{% url 'catalog:product_list' %}" class="btn btn-primary">🍂 Отмена 🍂</a>
             </form>
         </div>
     </div>

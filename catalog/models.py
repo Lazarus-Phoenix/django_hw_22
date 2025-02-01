@@ -1,6 +1,9 @@
 from django.db import models
+from django import forms
 
 from django.core.exceptions import ValidationError
+
+
 
 """
  Валидатор для проверки запрещенных слов
@@ -51,6 +54,20 @@ class Product(models.Model):
         max_digits=10,
         decimal_places=2
     )
+
+    """
+    Запомнить! валидация пишется сразу за полем self(ссылку) на которое и делает 
+    """
+    def clean(self):
+        if self.purchase_price < 0:
+            raise ValidationError("Цена не может быть отрицательной.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()  # Вызывает все валидаторы, включая custom clean methods
+        super().save(*args, **kwargs)
+
+
+
     created_at = models.DateTimeField(
         auto_now_add=True
     )
@@ -58,25 +75,17 @@ class Product(models.Model):
         auto_now=True
     )
 
-    def clean(self):
-        """
-        Валидация модели перед сохранением.
-        """
-        # Применяем валидатор к полю name
-        validate_forbidden_words(self.name)
-
-        # Применяем валидатор к полю description
-        validate_forbidden_words(self.description)
-
-        # Вызываем clean родительского класса
-        super().clean()
-
-    def save(self, *args, **kwargs):
-        """
-        Выполняет полную валидацию модели перед сохранением.
-        """
-        self.full_clean()  # Вызывает clean() и другие проверки
-        super().save(*args, **kwargs)
+    # def clean(self):
+    #     # Вызываем clean родительского класса
+    #     super().clean()
+    #
+    #     # Применяем валидаторы к полям name и description
+    #     validate_forbidden_words(self.name)
+    #     validate_forbidden_words(self.description)
+    #
+    # def save(self, *args, **kwargs):
+    #     self.full_clean()  # Вызывает все валидаторы, включая custom clean methods
+    #     super().save(*args, **kwargs)
 
 
     class Meta:
