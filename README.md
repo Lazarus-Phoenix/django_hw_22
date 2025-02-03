@@ -64,9 +64,9 @@ django_hw_22/
 │....└── views.py <br>
 │........├── home.html <br>
 │........├── base.html <br>
-│........├── product_create.html
-│........├── product_update.html
-│........├── product_delete_confirm.html
+│........├── product_create.html <br>
+│........├── product_update.html <br>
+│........├── product_delete_confirm.html <br>
 │........├── product_detail.html <br>
 │........├── product_list.html <br>
 │........└── contacts.html <br>
