@@ -1,12 +1,20 @@
 # Проект Skystore
 ---
-![Screenshot 2025-01-26 at 05-19-06 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-19-06%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-26 at 05-22-03 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-22-03%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-26 at 05-23-09 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-23-09%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-26 at 05-24-34 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2005-24-34%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-26 at 06-12-36 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2006-12-36%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-01-26 at 06-13-54 AudioMarket · Bootstrap v5.3.png](static/HW_25_photo_pages_site/Screenshot%202025-01-26%20at%2006-13-54%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-## CRUD Создание редактирование обновление статей и удаление !
+Добавляю тестовый товар 
+![Screenshot 2025-02-03 at 08-52-20 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-52-20%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-02-03 at 08-47-49 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-47-49%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+Захожу в детализацию выставленного через форму тестового товара
+![Screenshot 2025-02-03 at 08-48-31 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-48-31%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+Выбираю удалить и проваливаюсь в подтверждение выбора
+![Screenshot 2025-02-03 at 08-49-00 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-49-00%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+Нет тестового товара после удаления
+![Screenshot 2025-02-03 at 08-49-26 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-49-26%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+Отучиваем формы от плохих слов
+![Screenshot 2025-02-03 at 08-53-45 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-53-45%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+Отучиваем формы от нереальных цен
+![Screenshot 2025-02-03 at 08-54-29 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-54-29%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+## CRUD Создание редактирование обновление статей и удаление с формой выставления товара по предписанным признакам!
+
 ---
 Этот проект был разработан как домашнее задание с использованием фреймворка Django. 
 Он включает в себя приложение каталога с домашней страницей и страницей контактов.
@@ -27,11 +35,11 @@ django_hw_22/
 │....├── settings.py <br>
 │....└── wsgi.py <br>
 │ ├── blog/ <br>
-│.......├──management/ <br>
-│...........├──init.py <br>
-│...........├──commands/ <br>
+│.......├── management/ <br>
+│...........├── init.py <br>
+│...........├── commands/ <br>
 │...............├──init.py <br>
-│....├──migrations/ <br>
+│....├── migrations/ <br>
 │....├── init.py <br>
 │....├── admin.py <br>
 │....├── apps.py <br>
@@ -41,20 +49,24 @@ django_hw_22/
 │....└── views.py <br>
 │
 │ ├── catalog/ <br>
-│.......├──management/ <br>
-│...........├──init.py <br>
-│...........├──commands/ <br>
-│...............├──init.py <br>
-│....├──migrations/ <br>
+│.......├── management/ <br>
+│...........├── init.py <br>
+│...........├── commands/ <br>
+│...............├── init.py <br>
+│....├── migrations/ <br>
 │....├── init.py <br>
 │....├── admin.py <br>
 │....├── apps.py <br>
+│....├── forms.py <br>
 │....├── models.py <br>
 │....├── templates/ <br>
 │....├── tests.py <br>
 │....└── views.py <br>
 │........├── home.html <br>
 │........├── base.html <br>
+│........├── product_create.html <br>
+│........├── product_update.html <br>
+│........├── product_delete_confirm.html <br>
 │........├── product_detail.html <br>
 │........├── product_list.html <br>
 │........└── contacts.html <br>
