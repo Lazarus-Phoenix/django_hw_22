@@ -137,3 +137,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+""" 
+Список запрещённых постоянно развиваемый нехороших слов для валидаторов нашего подрастающего сайта
+"""
+FORBIDDEN_WORDS = [
+    'казино', 'криптовалюта', 'крипта', 'биржа',
+    'дешево','дёшево', 'бесплатно', 'обман', 'полиция', 'радар'
+]
