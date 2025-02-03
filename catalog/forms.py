@@ -4,8 +4,9 @@ from django.conf import settings
 
 from catalog.models import Product
 
+
 def validate_forbidden_words(value):
-    forbidden_words = getattr(settings, 'FORBIDDEN_WORDS', [])
+    forbidden_words = getattr(settings, "FORBIDDEN_WORDS", [])
     value_lower = value.lower()
     for word in forbidden_words:
         if word in value_lower:
@@ -20,16 +21,16 @@ class ProductForm(forms.ModelForm):
     def clean_purchase_price(self):
         price = self.cleaned_data.get("purchase_price")
         if price < 0:
-            raise forms.ValidationError('Цена не может быть отрицательной')
+            raise forms.ValidationError("Цена не может быть отрицательной")
         return price
 
     def clean_name(self):
-        name = self.cleaned_data.get('name')
+        name = self.cleaned_data.get("name")
         validate_forbidden_words(name)
         return name
 
     def clean_description(self):
-        description = self.cleaned_data.get('description')
+        description = self.cleaned_data.get("description")
         validate_forbidden_words(description)
         return description
 
