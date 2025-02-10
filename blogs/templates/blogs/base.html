@@ -178,10 +178,11 @@
           <a href="/contacts/" class="btn btn-secondary my-2">Контакты</a>
           <a href="/blogs/"class="btn btn-success my-2">Блог</a>
         </p>
-        <p>
-          <a href="/blogs/add_post/" class="btn btn-primary my-2">☕️ Напиши у нас статью</a>
-
-        </p>
+        {% if user.is_authenticated %}
+          <p>
+            <a href="/blogs/add_post/" class="btn btn-primary my-2">☕️ Напиши у нас статью</a>
+          </p>
+        {% endif %}
       </div>
     </div>
   </section>
