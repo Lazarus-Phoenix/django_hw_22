@@ -1,21 +1,32 @@
 # Проект Skystore
 ---
-Добавляю тестовый товар 
-![Screenshot 2025-02-03 at 08-52-20 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-52-20%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-02-03 at 08-47-49 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-47-49%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-Захожу в детализацию выставленного через форму тестового товара
-![Screenshot 2025-02-03 at 08-48-31 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-48-31%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-Выбираю удалить и проваливаюсь в подтверждение выбора
-![Screenshot 2025-02-03 at 08-49-00 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-49-00%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-Нет тестового товара после удаления
-![Screenshot 2025-02-03 at 08-49-26 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-49-26%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-Отучиваем формы от плохих слов
-![Screenshot 2025-02-03 at 08-53-45 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-53-45%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-Отучиваем формы от нереальных цен
-![Screenshot 2025-02-03 at 08-54-29 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-03%20at%2008-54-29%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-02-11 at 04-58-41 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2004-58-41%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-02-11 at 04-59-21 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2004-59-21%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-02-11 at 04-59-45 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2004-59-45%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+## Регистрация с подтверждением проходом по ссылке отправляемой на почту
+![Screenshot 2025-02-11 at 05-01-58 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-01-58%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Снимок экрана от 2025-02-11 05-03-38.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-03-38.png)
+## Страница приземления по ссылки из почты, уже доступна копка "Написать статью"
+![Снимок экрана от 2025-02-11 05-04-08.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-04-08.png)
+## А в базе данных появляется user is_active
+![Снимок экрана от 2025-02-11 05-09-06.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-09-06.png)
+![Снимок экрана от 2025-02-11 05-09-49.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-09-49.png)
+##user is_active и все страницы преобразились фунционалом "только для своих"- добавления товаров и написания статей
+![Screenshot 2025-02-11 at 05-06-34 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-06-34%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-02-11 at 05-06-57 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-06-57%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+![Screenshot 2025-02-11 at 05-08-02 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-08-02%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+
+
+
+
+
 ## CRUD Создание редактирование обновление статей и удаление с формой выставления товара по предписанным признакам!
 
 ---
+Реализованна регистрация пользователей, по ссылке отправляемой на почту указанной в 
+форме регистрации, 
+Так же введены ограничения к редактированию и публикации на сайте  для не зарегистрированных
+пользователей.
 Этот проект был разработан как домашнее задание с использованием фреймворка Django. 
 Он включает в себя приложение каталога с домашней страницей и страницей контактов.
 
@@ -70,6 +81,16 @@ django_hw_22/
 │........├── product_detail.html <br>
 │........├── product_list.html <br>
 │........└── contacts.html <br>
+│ ├── users/ <br>
+│....├── migrations/ <br>
+│....├── init.py <br>
+│....├── admin.py <br>
+│....├── apps.py <br>
+│....├── forms.py <br>
+│....├── models.py <br>
+│....├── templates/ <br>
+│....├── tests.py <br>
+│....└── views.py <br>
 │ └── static/ <br>
 ....└── css/ <br>
 ........└── bootstrap.min.css<br>
@@ -87,6 +108,8 @@ django_hw_22/
 1. **Домашняя страница**: Каталог товаров с фото и краткими описаниями
 2. **Страница контактов**: Предоставляет детали контактов и форму для отправки сообщений
 3. **Блог**: Блог с публикуемыми тематическими статьями отсортированными по дате, читайте свежее первым 
+4. Регистрация , уровни доступа к функционалу в зависимости от регистрации
+5. Задействован SMTP с отправкой сгенерированной ссылкой для верификации почты её владельцем  
 
 ## Инструкции по настройке
 
