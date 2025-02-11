@@ -11,7 +11,7 @@
 ## А в базе данных появляется user is_active
 ![Снимок экрана от 2025-02-11 05-09-06.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-09-06.png)
 ![Снимок экрана от 2025-02-11 05-09-49.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-09-49.png)
-##user is_active и все страницы преобразились фунционалом "только для своих"- добавления товаров и написания статей
+## user is_active и все страницы преобразились фунционалом "только для своих"- добавления товаров и написания статей
 ![Screenshot 2025-02-11 at 05-06-34 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-06-34%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
 ![Screenshot 2025-02-11 at 05-06-57 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-06-57%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
 ![Screenshot 2025-02-11 at 05-08-02 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-08-02%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
