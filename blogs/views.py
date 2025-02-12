@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
 from blogs.models import Post
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -28,7 +28,7 @@ class PostDetailView(DetailView):
         return post
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content', 'preview']
     template_name = 'blogs/post_form.html'
