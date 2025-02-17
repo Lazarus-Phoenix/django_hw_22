@@ -1,3 +1,4 @@
+import logger
 from django.views.generic import (
     ListView,
     DetailView,
@@ -5,13 +6,17 @@ from django.views.generic import (
     CreateView,
     UpdateView,
     DeleteView,
+    View,
 )
 from django.contrib import messages
 
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from .forms import ProductForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy, reverse
+from .forms import ProductForm, ProductModeratorForm
 from .models import Product
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseForbidden
+
 
 
 class HomeView(TemplateView):
@@ -42,39 +47,61 @@ class ProductDetailView(DetailView):
     context_object_name = "product"
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
     template_name = "catalog/product_create.html"
     success_url = reverse_lazy("catalog:product_list")
 
     def form_valid(self, form):
-        product = form.save(commit=False)
-        product.published = True
-        product.save()
-        return super().form_valid(form)
+        product = form.save(commit=False)  # Создаем продукт, но не сохраняем в БД
+        product.published = True  # Устанавливаем статус опубликованного
+        user = self.request.user  # Получаем текущего пользователя
+        product.owner = user  # Привязываем пользователя как владельца
+        product.save()  # Сохраняем продукт в БД
+        return super().form_valid(form)  # Вызываем родительский метод
 
-
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin,UpdateView):
     model = Product
     form_class = ProductForm
     template_name = "catalog/product_update.html"
-    success_url = reverse_lazy("catalog:product_detail")
-
-    def form_valid(self, form):
-        product = form.save(commit=False)
-        product.published = True
-        product.save()
-        return super().form_valid(form)
-
-
-class ProductDeleteView(DeleteView):
-    model = Product
-    template_name = "catalog/product_delete_confirm.html"
-    success_url = reverse_lazy("catalog:product_detail")
+    # success_url = reverse_lazy("catalog:product_detail")
 
     def get_success_url(self):
-        return reverse_lazy("catalog:product_list")
+        try:
+            return reverse('catalog:product_detail', args=[self.object.pk])
+        except Exception as e:
+            # Логирование ошибки
+            logger.error(f"Error in get_success_url: {str(e)}")
+            return reverse('catalog:products_list')
+
+    def get_form_class(self):
+        user = self.request.user
+        if user.has_perm('catalog.can_unpublish_product'):
+            return ProductModeratorForm
+
+        return ProductForm
+
+
+
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
+    model = Product
+    template_name = "catalog/product_delete_confirm.html"
+    pk_url_kwarg = 'catalog_product_id'
+
+    def post(self, request, catalog_product_id):
+        product = get_object_or_404(Product, id=catalog_product_id)
+        if not request.user.has_perm('catalog.can_delete_product'):
+            return HttpResponseForbidden("У вас нет прав для удаления продукта.")
+        product.delete()
+        return redirect('catalog:product_list')
+
+    # permission_classes = 'catalog.can_delete_product'
+    # # success_url = reverse_lazy("catalog:product_detail")
+    #
+    # def get_success_url(self):
+    #     return reverse_lazy("catalog:product_list")
+
 
 
 class BaseTemplateView(TemplateView):

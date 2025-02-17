@@ -10,8 +10,14 @@
         <div class="col">
           <div class="card shadow-sm">
             <a href="{% url 'catalog:product_list' %}" class="btn btn-primary">Вернуться назад</a>
-            <a href="{% url 'catalog:edit_product' product.pk %}" class="btn btn-secondary">Редактировать</a>
-            <a href="{% url 'catalog:delete_product' product.pk %}" class="btn btn-danger">Удалить</a>
+
+            {% if user.is_authenticated%}
+              {% if perms.catalog.change_product or product.owner == user %}
+                <a href="{% url 'catalog:edit_product' product.pk %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'catalog:delete_product' product.pk %}" class="btn btn-danger">Удалить</a>
+              {% endif %}
+            {% endif %}
+
             <img src="{{product.image | media_filter}}">
 <!--            product.image продукт берётся из views а имэйдж из Product на который ссылается product в views-->
             <div class="card-body">
@@ -20,11 +26,16 @@
               <p class="card-text">{{product.description}}</p>
               <h1> <p class="card-text">Цена: {{product.purchase_price}}₽</p> </h1>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <div class="owner-info">
+                   <h3 class="fw-light"> Закон позволяет стихийные сделки, <br>
+                     так давай сделаем это ! <br>
+                     По вопросам покупки или бартера на дочь <br>
+                     или отары овец пищи по адресу : <br>
+                     {{ product.owner.email }} <br>
+                     Чужие кони, жёны и фамильное оружие в оплату не предлагать !
+                     БАН на три дня !
+                   </h3>
                 </div>
-                <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>

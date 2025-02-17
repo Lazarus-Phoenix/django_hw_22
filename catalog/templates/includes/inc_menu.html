@@ -7,7 +7,7 @@
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
             {% if user.is_authenticated %}
-            <p>Добро пожаловать, {{ user.username }}!</p>
+            <p>Добро пожаловать {{user.name}} {{user.email}} !</p>
             {% else %}
             <p>Добро пожаловать на наш сайт!</p>
             {% endif %}
