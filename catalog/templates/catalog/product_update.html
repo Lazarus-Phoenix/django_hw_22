@@ -13,7 +13,7 @@
                 {{ form.as_p }}
 
                 {% if user.is_authenticated %}
-                    {% if perms.catalog.change_product or product.owner == user %}
+                    {% if product.owner == user %}
                         <p>Пользователь: {{ user.username }}</p>
                         <p>Владелец товара: {{ product.owner }}</p>
                         <p>Права доступа: {{ perms.catalog.can_change_product }}</p>

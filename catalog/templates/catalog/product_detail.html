@@ -14,7 +14,11 @@
             {% if user.is_authenticated%}
               {% if perms.catalog.change_product or product.owner == user %}
                 <a href="{% url 'catalog:edit_product' product.pk %}" class="btn btn-secondary">Редактировать</a>
-                <a href="{% url 'catalog:delete_product' product.pk %}" class="btn btn-danger">Удалить</a>
+                {% if perms.catalog.delete_product %}
+                  {% if product.owner == user %}
+                    <a href="{% url 'catalog:delete_product' product.pk %}" class="btn btn-danger">Удалить</a>
+                  {% endif %}
+                {% endif %}
               {% endif %}
             {% endif %}
 
