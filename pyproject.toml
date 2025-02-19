@@ -13,6 +13,7 @@ psycopg2 = "^2.9.10"
 python-dotenv = "^1.0.1"
 pillow = "^11.1.0"
 ipython = "^8.31.0"
+logger = "^1.4"
 
 
 [build-system]
