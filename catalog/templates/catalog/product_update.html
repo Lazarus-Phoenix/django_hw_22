@@ -11,7 +11,20 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+
+                {% if user.is_authenticated %}
+                    {% if product.owner == user %}
+                        <p>Пользователь: {{ user.username }}</p>
+                        <p>Владелец товара: {{ product.owner }}</p>
+                        <p>Права доступа: {{ perms.catalog.can_change_product }}</p>
+                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                    {% else %}
+                        <p>Нет прав на изменение товара</p>
+                    {% endif %}
+                {% else %}
+                    <p>Пользователь не авторизован</p>
+                {% endif %}
+
                 <a href="{% url 'catalog:product_list' %}" class="btn btn-secondary">Отмена</a>
             </form>
         </div>

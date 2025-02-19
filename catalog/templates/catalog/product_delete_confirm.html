@@ -11,7 +11,13 @@
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-danger">🍂 Подтвердите удаление 🍂</button>
+
+                {% if user.is_authenticated %}
+                    {% if perms.catalog.delete_product or product.owner == user %}
+                        <button type="submit" class="btn btn-danger">🍂 Подтвердите удаление 🍂</button>
+                    {% endif %}
+                {% endif %}
+
                 <a href="{% url 'catalog:product_list' %}" class="btn btn-primary">🍂 Отмена 🍂</a>
             </form>
         </div>

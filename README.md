@@ -1,21 +1,37 @@
 # Проект Skystore
 ---
-![Screenshot 2025-02-11 at 04-58-41 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2004-58-41%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-02-11 at 04-59-21 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2004-59-21%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-02-11 at 04-59-45 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2004-59-45%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-## Регистрация с подтверждением проходом по ссылке отправляемой на почту
-![Screenshot 2025-02-11 at 05-01-58 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-01-58%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Снимок экрана от 2025-02-11 05-03-38.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-03-38.png)
-## Страница приземления по ссылки из почты, уже доступна копка "Написать статью"
-![Снимок экрана от 2025-02-11 05-04-08.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-04-08.png)
-## А в базе данных появляется user is_active
-![Снимок экрана от 2025-02-11 05-09-06.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-09-06.png)
-![Снимок экрана от 2025-02-11 05-09-49.png](static/HW_26_1_forms/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202025-02-11%2005-09-49.png)
-## user is_active и все страницы преобразились фунционалом "только для своих"- добавления товаров и написания статей
-![Screenshot 2025-02-11 at 05-06-34 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-06-34%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-02-11 at 05-06-57 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-06-57%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
-![Screenshot 2025-02-11 at 05-08-02 AudioMarket · Bootstrap v5.3.png](static/HW_26_1_forms/Screenshot%202025-02-11%20at%2005-08-02%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+# Продавец прописан над товаром.
+![Screenshot 2025-02-18 at 05-00-26 AudioMarket · Bootstrap v5.3.png](media/images/Screenshot%202025-02-18%20at%2005-00-26%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+# Свой товар можно и подредактировать.
+![Screenshot 2025-02-18 at 05-33-51 AudioMarket · Bootstrap v5.3.png](media/images/Screenshot%202025-02-18%20at%2005-33-51%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
+# Чужой нельзя (Если не имеешь выделенных полномочий от админа сайта)
+![Screenshot 2025-02-18 at 05-37-24 AudioMarket · Bootstrap v5.3.png](media/images/Screenshot%202025-02-18%20at%2005-37-24%20AudioMarket%20%C2%B7%20Bootstrap%20v5.3.png)
 
+В данной домашней работе решён вопрос с разграничением прав пользователей 
+как на уровне админки, так и на уровне создания <br>
+через shell, так же через фикстуру в command
+, а также на уровне доступа к элементам интерфйеса на уровне шаблонов. <br>
+Кроме того добавленно разграничение прав пользователей <br>
+различающее создателя товарной позиции от других, <br>
+и доверяющее создателю вносить правки либо удалять свой товар, <br>
+описание, цену, фото, наименование <br>
+___
+Добавлены кастомные права к модели продукта.
+can_unpublish_product
+ — может отменять публикацию продукта
+
+Созданы группу «Модератор продуктов» и назначены ей следующие права: <br>
+Разрешение <br>
+can_unpublish_product <br>
+<br>
+Разрешение на удаление любого продукта. <br>
+
+Добавлено поле владельца (
+owner
+) к модели продукта. Оно связано с моделью пользователя через 
+ForeignKey
+.
+Продукт автоматически привязывается к создающему его пользователю <br>
 
 
 
@@ -82,6 +98,8 @@ django_hw_22/
 │........├── product_list.html <br>
 │........└── contacts.html <br>
 │ ├── users/ <br>
+│....├── management/ <br>
+│........└──commands <br>
 │....├── migrations/ <br>
 │....├── init.py <br>
 │....├── admin.py <br>
