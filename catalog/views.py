@@ -17,6 +17,9 @@ from .models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
 
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from django.core.cache import cache
 
 
 class HomeView(TemplateView):
@@ -31,7 +34,7 @@ class ContactTemplateView(TemplateView):
         context["title"] = "Контакты"
         return context
 
-
+@method_decorator(cache_page(60*15), name='dispatch')
 class ProductListView(ListView):
     model = Product
     template_name = "catalog/product_list.html"
@@ -40,7 +43,7 @@ class ProductListView(ListView):
     # def get_queryset(self):
     #     return Product.objects.filter(published=True)
 
-
+@method_decorator(cache_page(60*15), name='dispatch')
 class ProductDetailView(DetailView):
     model = Product
     template_name = "catalog/product_detail.html"
@@ -72,7 +75,7 @@ class ProductUpdateView(LoginRequiredMixin,UpdateView):
             return reverse('catalog:product_detail', args=[self.object.pk])
         except Exception as e:
             # Логирование ошибки
-            logger.error(f"Error in get_success_url: {str(e)}")
+            logger.error(f"Error in get_success_url:{str(e)}")
             return reverse('catalog:products_list')
 
     def get_form_class(self):
