@@ -8,18 +8,72 @@ from django.views.generic import (
     DeleteView,
     View,
 )
-from django.contrib import messages
+
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from .forms import ProductForm, ProductModeratorForm
-from .models import Product
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
 
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 from django.core.cache import cache
+from django.views.generic import TemplateView, ListView
+from .models import Category, Product
+
+from .services import get_products_by_category
+
+from .forms import CategoryForm
+
+
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'catalog/category_list.html'
+    context_object_name = 'categories'
+
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'catalog/category_detail.html'
+    context_object_name = 'category'
+
+class CategoryCreateView(CreateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'catalog/category_form.html'
+    success_url = '/catalog/'
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
+class CategoryUpdateView(UpdateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'catalog/category_form.html'
+    context_object_name = 'object'
+    success_url = '/catalog/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Изменение категории'
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'].owner = self.request.user
+        return kwargs
+
+class CategoryDeleteView(DeleteView):
+    model = Category
+    template_name = 'catalog/category_delete.html'
+    success_url = '/catalog/'
+
+    def dispatch(self, request, *args, **kwargs):
+        if self.get_object().owner != request.user:
+            return redirect('category_list')
+        return super().dispatch(request, *args, **kwargs)
 
 
 class HomeView(TemplateView):
@@ -34,7 +88,7 @@ class ContactTemplateView(TemplateView):
         context["title"] = "Контакты"
         return context
 
-@method_decorator(cache_page(60*15), name='dispatch')
+
 class ProductListView(ListView):
     model = Product
     template_name = "catalog/product_list.html"
@@ -43,7 +97,7 @@ class ProductListView(ListView):
     # def get_queryset(self):
     #     return Product.objects.filter(published=True)
 
-@method_decorator(cache_page(60*15), name='dispatch')
+
 class ProductDetailView(DetailView):
     model = Product
     template_name = "catalog/product_detail.html"

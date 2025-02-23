@@ -1,0 +1,14 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}{% if object %}Изменение{% else %}Добавление{% endif %} категории{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{% if object %}Изменение{% else %}Добавление{% endif %} категории</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">{% if object %}Обновить{% else %}Добавить{% endif %}</button>
+        </form>
+    </div>
+{% endblock %}

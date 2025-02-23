@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.conf import settings
 
 from catalog.models import Product
+from .models import Category
 
 
 def validate_forbidden_words(value):
@@ -75,3 +76,11 @@ class ProductForm(forms.ModelForm):
                 field.widget.attrs.update({"class": "form-check-input"})
             else:
                 field.widget.attrs.update({"class": "form-control"})
+
+
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ('name', 'description')
