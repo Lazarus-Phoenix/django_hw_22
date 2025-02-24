@@ -167,3 +167,12 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL =  EMAIL_HOST_USER # - это адрес электронной почты, который Django будет использовать для отправки системных сообщений и уведомлений об ошибках
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://localhost:6379/1',
+    }
+}
+
+CACHE_ENABLED = True

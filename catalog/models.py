@@ -18,6 +18,10 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
+        permissions = [
+            ("can_change_category", "Can change category"),
+            ("can_delete_category", "Can delete category"),
+        ]
 
     def __str__(self):
         return self.name
