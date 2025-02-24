@@ -1,0 +1,28 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Список продуктов в категории {{ category.name }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <h1>Продукты в категории </h1>
+
+      {% if products %}
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              {% for product in products %}
+              <div class="col">
+                  <div class="card shadow-sm">
+                      <div class="card-body">
+                          <h5>{{product.name}}</h5>
+                          <h6>Категория: {{product.category}}</h6>
+                          <p>Цена: {{product.purchase_price}} ₽</p>
+
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      {% else %}
+          <p>В этой категории нет продуктов.</p>
+      {% endif %}
+  </div>
+{% endblock %}

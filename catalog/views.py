@@ -12,26 +12,34 @@ from django.views.generic import (
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
-from .forms import ProductForm, ProductModeratorForm
+from .forms import ProductForm, ProductModeratorForm, CategoryForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden
-
-from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 from django.core.cache import cache
-from django.views.generic import TemplateView, ListView
 from .models import Category, Product
 
 from .services import get_products_by_category
 
-from .forms import CategoryForm
-
-
 
 class CategoryListView(ListView):
+    """Представляет категории для списка категорий """
     model = Category
     template_name = 'catalog/category_list.html'
     context_object_name = 'categories'
+
+
+class CategoryProductListView(ListView):
+    """Представляет продукты той категории в которую провалился из списка категории """
+    model = Product
+    template_name = 'catalog/category_product_list.html'
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        category_id = self.kwargs.get('category_id')
+        return get_products_by_category(category_id)
+
+
 
 class CategoryDetailView(DetailView):
     model = Category

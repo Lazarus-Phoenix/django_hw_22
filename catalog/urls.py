@@ -7,7 +7,13 @@ from .views import (
     ProductCreateView,
     ProductUpdateView,
     ContactTemplateView,
-    ProductDeleteView, CategoryListView, CategoryDetailView, CategoryCreateView, CategoryUpdateView, CategoryDeleteView,
+    ProductDeleteView,
+    CategoryListView,
+    CategoryDetailView,
+    CategoryCreateView,
+    CategoryUpdateView,
+    CategoryDeleteView,
+    CategoryProductListView,
 )
 from django.views.decorators.cache import cache_page
 
@@ -28,5 +34,8 @@ urlpatterns = [
     path('add_category/', CategoryCreateView.as_view(), name='add_category'),
     path('category/<int:pk>', CategoryUpdateView.as_view(), name='category_update'),
     path('<int:pk>/delete/', CategoryDeleteView.as_view(), name='category_delete'),
+
+    path('category/<int:category_id>/products/', CategoryProductListView.as_view(), name='category_products'),
+
 
 ]
